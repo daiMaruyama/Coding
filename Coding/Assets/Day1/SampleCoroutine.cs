@@ -8,9 +8,9 @@ public class SampleCoroutine : MonoBehaviour
     [SerializeField] TextMeshProUGUI _message;
     [SerializeField] Button startButton;
     [SerializeField] Button tapButton;
-    [SerializeField] Button retryButton;
+    // [SerializeField] Button retryButton;
     Coroutine _coroutine = null; 
-    float _startTime; //開始時間
+    float _startTime; //GOサイン
     bool _canTap = false; //Tapのインタラクション
 
     public void StartTimer()
@@ -31,7 +31,7 @@ public class SampleCoroutine : MonoBehaviour
         }
         else
         {
-            float reactionTime = Time.time - _startTime; //計測合計ーGOサイン
+            float reactionTime = Time.time - _startTime; //今押したときまでの合計時間 - GOサイン
             _message.text = $"Reaction Time: {reactionTime:F2} seconds";
         }
 
