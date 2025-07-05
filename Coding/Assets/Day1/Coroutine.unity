@@ -167,9 +167,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _message: {fileID: 1588392780}
-  startButton: {fileID: 627071921}
-  tapButton: {fileID: 1888238262}
-  retryButton: {fileID: 0}
+  _startButton: {fileID: 627071921}
+  _tapButton: {fileID: 1888238262}
 --- !u!1 &295820144
 GameObject:
   m_ObjectHideFlags: 0
