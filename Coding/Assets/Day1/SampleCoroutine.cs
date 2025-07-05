@@ -6,8 +6,8 @@ using TMPro; // TMPro を使うため
 public class SampleCoroutine : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI _message;
-    [SerializeField] Button startButton;
-    [SerializeField] Button tapButton;
+    [SerializeField] Button _startButton;
+    [SerializeField] Button _tapButton;
     // [SerializeField] Button retryButton;
     Coroutine _coroutine = null; 
     float _startTime; //GOサイン
@@ -19,7 +19,7 @@ public class SampleCoroutine : MonoBehaviour
         {
             _coroutine = StartCoroutine(WaitAndStart());
 
-            startButton.interactable = false; // StartはTapが終わるまで押せないfalse
+            _startButton.interactable = false; // StartはTapが終わるまで押せないfalse
         }
     }
 
@@ -35,7 +35,7 @@ public class SampleCoroutine : MonoBehaviour
             _message.text = $"Reaction Time: {reactionTime:F2} seconds";
         }
 
-        tapButton.interactable = false;
+        _tapButton.interactable = false;
         _canTap = false;
 
         if (_coroutine != null)　//一応コルーチンストップ
@@ -45,13 +45,13 @@ public class SampleCoroutine : MonoBehaviour
         }
 
         // Tapが終わったのでStartボタンを押せるように戻す
-        startButton.interactable = true;
+        _startButton.interactable = true;
     }
 
     IEnumerator WaitAndStart()
     {
         _message.text = "Ready..."; // Go!!までTapボタンは押せる
-        tapButton.interactable = true;
+        _tapButton.interactable = true;
         _canTap = false;
 
         float waitTime = Random.Range(0.5f, 5f); // wait
