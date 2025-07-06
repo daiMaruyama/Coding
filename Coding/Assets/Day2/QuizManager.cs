@@ -8,7 +8,7 @@ public class QuizManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI[] _choiceTexts;    // 選択肢表示用（4つ）
 
     private int _currentIndex = 0;
-    //private int _score = 0;
+    private int _score = 0;
 
     private void Start()
     {
@@ -32,10 +32,13 @@ public class QuizManager : MonoBehaviour
             _choiceTexts[i].text = quiz.answer[i];
         }
     }
-
-    /*
     public void Answer(int selectedIndex)
     {
+        if (_currentIndex >= _quizList.Length)
+        {
+            Debug.LogWarning("これ以上の問題はありません！");
+            return;
+        }
         if (selectedIndex == _quizList[_currentIndex].correctIndex)
         {
             Debug.Log("正解！");
@@ -66,5 +69,5 @@ public class QuizManager : MonoBehaviour
         {
             Debug.Log("もっとがんばろう！");
         }
-    } */
+    } 
 }
