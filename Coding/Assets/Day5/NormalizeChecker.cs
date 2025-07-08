@@ -6,7 +6,7 @@ public class NormalizeChecker : MonoBehaviour
     {
         int x = Random.Range(-5, 5);
         int y = Random.Range(-5, 5);
-        Vector3 RandomV = new Vector3(x, y, 0);
+        Vector3 RandomV = new(x, y, 0);
         Vector3 n = RandomV.Normalization();
 
         Debug.Log("ê≥ãKâªëOx: " + x);
