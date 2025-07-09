@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - Puck
+  - Check
   layers:
   - Default
   - TransparentFX
