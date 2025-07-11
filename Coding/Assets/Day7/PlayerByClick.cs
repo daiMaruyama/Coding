@@ -22,7 +22,7 @@ public class PlayerByClick : MonoBehaviour
     {
         _distance = 0f;
         _distanceText.text = "0.00 m";
-        transform.position = new Vector3(-4.75f, -0.80f, 0f); // ‰ŠúˆÊ’u‚É–ß‚·
+        transform.position = new Vector3(-4.75f, -0.85f, 0f); // ‰ŠúˆÊ’u‚É–ß‚·
     }
 
     void Update()

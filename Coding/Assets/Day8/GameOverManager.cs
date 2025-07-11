@@ -1,0 +1,12 @@
+using UnityEngine;
+
+public class GameOverManager : MonoBehaviour
+{
+    [SerializeField] GameObject _gameOverPanel;
+
+    public void ShowGameOver()
+    {
+        _gameOverPanel.SetActive(true); // UIÇON
+        Time.timeScale = 0f; // ÉQÅ[ÉÄã≠êßí‚é~
+    }
+}
