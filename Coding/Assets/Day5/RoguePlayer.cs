@@ -5,6 +5,7 @@ using UnityEngine;
 public class RoguePlayer : MonoBehaviour
 {
     private Vector2Int position;
+    ItemBase2D heldItem;
 
     void Start()
     {
@@ -29,16 +30,34 @@ public class RoguePlayer : MonoBehaviour
             position = next;
             transform.position = MapToWorld(position);
         }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (heldItem != null)
+            {
+                Debug.Log("Eキーでアイテム使用: " + heldItem.name);
+                heldItem.Activate();
+                heldItem = null;
+            }
+            else
+            {
+                Debug.Log("Eキー押したけどアイテム持っていない");
+            }
+        }
     }
 
     Vector3 MapToWorld(Vector2Int pos)
     {
-        return new Vector3(pos.x, pos.y, 0); // 補正なし
+        return new Vector3(pos.x, pos.y, 0);
     }
 
     bool IsInMap(Vector2Int pos, bool[,] map)
     {
         return pos.x >= 0 && pos.x < map.GetLength(0)
             && pos.y >= 0 && pos.y < map.GetLength(1);
+    }
+    public void GetItem(ItemBase2D item)
+    {
+        heldItem = item;
+        Debug.Log("アイテムを取得");
     }
 }
