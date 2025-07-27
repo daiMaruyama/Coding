@@ -4,6 +4,10 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] GameObject _enemyPrefab;
     [SerializeField] Camera _mainCam;
+    [SerializeField] float _spawnInterval = 3f;
+    [SerializeField] int _maxEnemiesInView = 2;
+
+    float _timer;
 
     void Start()
     {
@@ -11,8 +15,20 @@ public class EnemySpawner : MonoBehaviour
         {
             _mainCam = Camera.main;
         }
+        _timer = _spawnInterval;
+    }
 
-        SpawnEnemyInCameraView();
+    void Update()
+    {
+        _timer -= Time.deltaTime;
+        if (_timer <= 0f)
+        {
+            if (CountEnemiesInCameraView() < _maxEnemiesInView)
+            {
+                SpawnEnemyInCameraView();
+            }
+            _timer = _spawnInterval;
+        }
     }
 
     void SpawnEnemyInCameraView()
@@ -23,7 +39,6 @@ public class EnemySpawner : MonoBehaviour
         float camTop = _mainCam.transform.position.y + _mainCam.orthographicSize;
         float camBottom = _mainCam.transform.position.y - _mainCam.orthographicSize;
 
-        // カメラ内にある床だけ抽出
         var validPlatforms = new System.Collections.Generic.List<GameObject>();
         foreach (GameObject platform in platforms)
         {
@@ -36,12 +51,28 @@ public class EnemySpawner : MonoBehaviour
 
         if (validPlatforms.Count == 0) return;
 
-        // ランダムな床を選ぶ（同じ床に複数出したくないなら、出した床を記録する）
         GameObject selectedPlatform = validPlatforms[Random.Range(0, validPlatforms.Count)];
-
         Vector3 spawnPos = selectedPlatform.transform.position;
         spawnPos.y += 0.5f;
 
         Instantiate(_enemyPrefab, spawnPos, Quaternion.identity);
+    }
+
+    int CountEnemiesInCameraView()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        float camTop = _mainCam.transform.position.y + _mainCam.orthographicSize;
+        float camBottom = _mainCam.transform.position.y - _mainCam.orthographicSize;
+
+        int count = 0;
+        foreach (GameObject enemy in enemies)
+        {
+            float y = enemy.transform.position.y;
+            if (y > camBottom && y < camTop)
+            {
+                count++;
+            }
+        }
+        return count;
     }
 }

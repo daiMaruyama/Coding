@@ -488,7 +488,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyPrefab: {fileID: 6849392336465191515, guid: b1b408906dd85b24f92cc9f18a56fff5, type: 3}
-  _mainCam: {fileID: 0}
+  _mainCam: {fileID: 326268521}
+  _spawnInterval: 3
+  _maxEnemiesInView: 2
 --- !u!4 &1618905028
 Transform:
   m_ObjectHideFlags: 0
