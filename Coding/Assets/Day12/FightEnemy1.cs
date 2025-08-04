@@ -19,6 +19,7 @@ public class FightEnemy1 : MonoBehaviour
         if (_enemyHp <= 0)
         {
             Die();
+            Destroy(gameObject, 1f);
         }
 
     }

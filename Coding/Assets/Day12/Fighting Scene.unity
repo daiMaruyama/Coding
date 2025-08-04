@@ -435,7 +435,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _moveSpeed: 3
   _attackMuzzle: {fileID: 762275475}
-  _attackRadious: 0.3
+  _attackRadious: 0.32
   _enemyLayerMask:
     serializedVersion: 2
     m_Bits: 128
