@@ -10,6 +10,7 @@ public class FightPlayer1 : MonoBehaviour
     [SerializeField] Transform _attackMuzzle;
     [SerializeField] float _attackRadious;
     [SerializeField] LayerMask _enemyLayerMask;
+    private int _attackPower = 1;
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -54,7 +55,7 @@ public class FightPlayer1 : MonoBehaviour
         foreach (Collider2D hitEnemy in hitEnemys)
         {
             Debug.Log(hitEnemy.gameObject.name + "‚ÉAttack");
-            hitEnemy.GetComponent<FightEnemy1>().OnDamage();
+            hitEnemy.GetComponent<FightEnemy1>().OnDamage(_attackPower);
         }
     }
 
