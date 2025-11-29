@@ -1,7 +1,7 @@
 # 🧪 Coding Practice & Unity Prototypes
 
 Unityの学習記録と、1日で実装可能な小規模なプロトタイプ（ワンメカニクス）をまとめたリポジトリです。
-思いついたアイデアの検証や、特定の技術要素（ScriptableObject、Physics、AIなど）の理解を深めることを目的としています。
+思いついたアイデアの検証や、特定の技術要素（Physics、AIなど）の理解を深めることを目的としています。
 
 <p align="left">
   <img src="https://img.shields.io/badge/Unity-2022.3.6f1-000000?style=flat-square&logo=unity&logoColor=white" />
